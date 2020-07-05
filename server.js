@@ -10,8 +10,8 @@ app.use(appLogger);
 
 //Mount the running application
 //challenge doesn't accept this when you it from the js file
-/*const myApp = require("./app");
-app.use(myApp);*/
+const myApp = require("./app");
+app.use(myApp);
 
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 // so that your API is remotely testable by FCC
@@ -40,41 +40,4 @@ const listener = app.listen(process.env.PORT, function() {
 function appLogger(req, res, next) {
   console.log(req.method, req.path, "-", req.ip);
   next();
-}
-
-app.get("/test", function(req, res) {
-  res.send("Test method is connected...");
-});
-
-//Running application from the app.js
-const basePath = "/api/timestamp/";
-//Get input from client with Route parameters
-const endpoint = `${basePath}:date_string`;
-//Mount the date method to the endpoint
-app.get(endpoint, function(req, res) {
-  console.log(typeof req.params.date_string, req.params.date_string);
-  res.json(dateParser(req.params.date_string));
-});
-
-app.get(basePath, function(req, res) {
-  res.json(dateParser(Date.now()));
-});
-
-function dateParser(time) {
-  let date = new Date(time);
-
-  if (isInvalid(date)) {
-    date = new Date(Number(time));
-    if (isInvalid(date)) {
-      return { error: "Invalid Date" };
-    }
-  }
-  return {
-    unix: date.getTime(),
-    utc: date.toUTCString()
-  };
-}
-
-function isInvalid(date) {
-  return date.toString() === "Invalid Date";
 }

@@ -2,7 +2,12 @@
 
 <html>
   <head>
-    <title>Timestamp Microservice</title>
+    <title>Request Header Parser</title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn.hyperdev.com/us-east-1%3A52a203ff-088b-420f-81be-45bf559d01b1%2Ffavicon.ico"
+      type="image/x-icon"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
@@ -13,67 +18,21 @@
 
   <body>
     <div class="container">
-      <h2>API Project: Timestamp Microservice</h2>
-      <h3>User Stories:</h3>
-      <ol class="user-stories">
-        <li>
-          The API endpoint is
-          <code>GET [project_url]/api/timestamp/:date_string?</code>
-        </li>
-        <li>
-          A date string is valid if can be successfully parsed by
-          <code>new Date(date_string)</code>.<br />
-          Note that the unix timestamp needs to be an
-          <strong>integer</strong> (not a string) specifying
-          <strong>milliseconds</strong>.<br />
-          In our test we will use date strings compliant with ISO-8601 (e.g.
-          <code>"2016-11-20"</code>) because this will ensure an UTC timestamp.
-        </li>
-        <li>
-          If the date string is <strong>empty</strong> it should be equivalent
-          to trigger <code>new Date()</code>, i.e. the service uses the current
-          timestamp.
-        </li>
-        <li>
-          If the date string is <strong>valid</strong> the api returns a JSON
-          having the structure<br /><code
-            >{"unix": &lt;date.getTime()&gt;, "utc" : &lt;date.toUTCString()&gt;
-            }</code
-          ><br />
-          e.g.
-          <code
-            >{"unix": 1479663089000 ,"utc": "Sun, 20 Nov 2016 17:31:29
-            GMT"}</code
-          >
-        </li>
-        <li>
-          If the date string is <strong>invalid</strong> the api returns a JSON
-          having the structure <br />
-          <code>{"error" : "Invalid Date" }</code>.
-        </li>
-      </ol>
+      <h2>API Project: Request Header Parser Microservice</h2>
+      <h3>User Story:</h3>
+      1. I can get the IP address, preferred languages (from header
+      <code>Accept-Language</code>)<br />
+      and system infos (from header <code>User-Agent</code>) for my device.
 
       <h3>Example Usage:</h3>
-      <ul>
-        <li>
-          <a href="api/timestamp/">[project url]/api/timestamp/</a>
-        </li>
-        <li>
-          <a href="api/timestamp/2020-07-01"
-            >[project url]/api/timestamp/2020-07-01</a
-          >
-        </li>
-        <li>
-          <a href="api/timestamp/1593746173079"
-            >[project url]/api/timestamp/1593746173079</a
-          >
-        </li>
-      </ul>
+      <p><a href="api/whoami">[base url]/api/whoami</a></p>
 
       <h3>Example Output:</h3>
       <p>
         <code
-          >{"unix":1593746173079,"utc":"Fri, 03 Jul 2020 03:16:13 GMT"}</code
+          >{"ipaddress":"73.200.30.196","language":"tr,en-US;q=0.9,en;q=0.8",<br />"software":"Mozilla/5.0
+          (Windows NT 10.0; Win64; x64)<br />AppleWebKit/537.36 (KHTML, like
+          Gecko) Chrome/83.0.4103.116 Safari/537.36"}</code
         >
       </p>
     </div>
