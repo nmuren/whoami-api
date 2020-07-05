@@ -1,0 +1,28 @@
+{
+  "name": "api-project-timestamp-microservice",
+  "version": "1.0.0",
+  "description": "This API returns a date object depending on given timestamp or date information. Returns current time if no information is given.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "~4.17.1",
+    "cors": "~2.8.5"
+  },
+  "engines": {
+    "node": "~10.15.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nmuren/timestamp-api.git"
+  },
+  "keywords": [
+    "node",
+    "hyperdev",
+    "express",
+    "nebilmuren",
+    "nmuren"
+  ],
+  "license": "MIT"
+}
