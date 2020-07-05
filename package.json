@@ -1,7 +1,7 @@
 {
-  "name": "api-project-timestamp-microservice",
+  "name": "api-project-request-header-microservice",
   "version": "1.0.0",
-  "description": "This API returns a date object depending on given timestamp or date information. Returns current time if no information is given.",
+  "description": "This API project returns IP address, preferred languages (from header Accept-Language) and system infos (from header User-Agent) for the current device.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nmuren/timestamp-api.git"
+    "url": "https://github.com/nmuren/whoami-api.git"
   },
   "keywords": [
     "node",
